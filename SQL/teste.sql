@@ -1,6 +1,6 @@
-DELETE FROM projeto.Plataforma WHERE plataformaID = 'platMO';
-DELETE FROM projeto.Publicador WHERE publicadorID = 'pubTC';
-DELETE FROM projeto.Desenvolvedor WHERE desenvolvedorID = 'devNH';
+--DELETE FROM projeto.Plataforma WHERE plataformaID = 'platMO';
+--DELETE FROM projeto.Publicador WHERE publicadorID = 'pubTC';
+--DELETE FROM projeto.Desenvolvedor WHERE desenvolvedorID = 'devNH';
 select * from projeto.Jogo
 --select * from projeto.FormatoDigital
 --select * from projeto.FormatoFisico
