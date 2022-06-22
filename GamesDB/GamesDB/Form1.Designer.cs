@@ -42,7 +42,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Login = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -164,14 +164,15 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Novo utilizador?";
             // 
-            // button3
+            // Login
             // 
-            this.button3.Location = new System.Drawing.Point(275, 238);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Conectar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Login.Location = new System.Drawing.Point(275, 238);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(75, 23);
+            this.Login.TabIndex = 6;
+            this.Login.Text = "Login";
+            this.Login.UseVisualStyleBackColor = true;
+            this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // button4
             // 
@@ -184,9 +185,9 @@
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(731, 470);
+            this.ClientSize = new System.Drawing.Size(731, 462);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Login);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
@@ -215,7 +216,7 @@
         private TextBox textBox3;
         private TextBox textBox4;
         private Label label8;
-        private Button button3;
+        private Button Login;
         private Button button4;
     }
 }
