@@ -17,8 +17,7 @@ ByVal userName As String, ByVal userPass As String)
         MsgBox("FAILED TO OPEN CONNECTION TO DATABASE DUE TO THE FOLLOWING ERROR" & vbCrLf &
         ex.Message, MsgBoxStyle.Critical, "Connection Test")
     End Try
-    If CN.State = ConnectionState.Open Then
-        CN.Close()
+    If CN.State = ConnectionState.Open Then CN.Close()
 
 End Sub
 
