@@ -31,9 +31,9 @@ CREATE TABLE PROJETO.Jogo(
 	especificacoesTecnicas	VARCHAR(120)				NOT NULL,
 	dataLancamento			DATE						NOT NULL,
 	preco					MONEY CHECK(preco >= 0)		NOT NULL,
-	plataformaID			VARCHAR(20)					NOT NULL,
-	publicadorID			VARCHAR(20)					NOT NULL,
-	desenvolvedorID			VARCHAR(20)					NOT NULL,
+	plataformaID			VARCHAR(20)					,
+	publicadorID			VARCHAR(20)					,
+	desenvolvedorID			VARCHAR(20)					,
 
 	PRIMARY KEY (jogoID),
 	FOREIGN KEY (plataformaID) REFERENCES PROJETO.Plataforma(plataformaID),
