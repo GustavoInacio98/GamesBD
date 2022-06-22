@@ -18,6 +18,8 @@ DROP PROCEDURE newJogoDigital;
 DROP PROCEDURE newPlataforma;
 DROP PROCEDURE newPublicador;
 DROP PROCEDURE newDesenvolvedor;
+DROP PROCEDURE newUtilizador;
+DROP PROCEDURE addListaDesejos;
 
 
 drop schema projeto
