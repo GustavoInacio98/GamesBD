@@ -1,11 +1,8 @@
 ﻿Imports System.Data.SqlClient
 
-Private Sub TestDBConnection(ByVal dbServer As String, ByVal dbName As String,
-ByVal userName As String, ByVal userPass As String)
+Private Sub TestDBConnection(ByVal dbServer As String, ByVal dbName As String, ByVal userName As String, ByVal userPass As String)
 
-    Dim CN As New SqlConnection("Data Source = " + dbServer + " ;" +
-"Initial Catalog = " + dbName + "; uid = " + userName + ";" +
-"password = " + userPass)
+    Dim CN As New SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;User ID=p2g4;Password=")
 
     Try
         CN.Open()
