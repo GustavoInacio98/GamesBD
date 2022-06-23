@@ -14,12 +14,44 @@ namespace GamesDB
     public partial class Form1 : Form
     {
         private SqlConnection cn;
-        private int currentPessoa;
-        private bool adding;
         private string connectionString = "Data Source = tcp:mednat.ieeta.pt\\SQLSERVER,8101; Initial Catalog = p2g4; uid = p2g4;" + "password = BaseDados2022";//"data source= localhost;integrated security=true;initial catalog=Biblioteca";
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private SqlConnection getSGBDConnection()
+        {
+            return new SqlConnection("Data Source=tcp:mednat.ieeta.pt\\SQLSERVER,8101;User ID=p2g4;Password=BaseDados2022;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        }
+
+        private bool verifySGBDConnection()
+        {
+            if (cn == null)
+                cn = getSGBDConnection();
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+            return cn.State == ConnectionState.Open;
+        }
+
+
+        private void InserirUtilizador(Utilizador utilizador)
+        {
+            int valid = 0;
+            if (verifySGBDConnection())
+                return;
+            using(SqlCommand cmd = new SqlCommand("Projeto.InsertUtilizador", cn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@nome", Utilizador.nome);
+                cmd.Parameters.AddWithValue("@password", Utilizador.password);
+                cmd.Parameters.AddWithValue("@email", Utilizador.email);
+                cmd.Parameters.AddWithValue("@telemovel", Utilizador.telemovel);
+                cmd.Parameters.AddWithValue("@regiao", Utilizador.regiao);
+                cmd.Connection = cn;
+
+            }
         }
 
         private void Login_Click(object sender, EventArgs e)
