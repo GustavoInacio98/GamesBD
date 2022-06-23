@@ -11,6 +11,9 @@ drop table PROJETO.Plataforma;
 
 
 DROP FUNCTION checkLogins;
+DROP FUNCTION checkProfile;
+DROP FUNCTION checkEstatisticas;
+DROP FUNCTION getAllGames;
 
 
 DROP PROCEDURE newJogoFisico;
