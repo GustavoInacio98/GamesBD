@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GamesDB
 {
-    public partial class Form3 : Form
+    public partial class InterUtilizador : Form
     {
-        public Form3()
+        public InterUtilizador()
         {
             InitializeComponent();
         }

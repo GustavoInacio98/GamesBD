@@ -1,6 +1,6 @@
 ﻿namespace GamesDB
 {
-    partial class Form3
+    partial class InterJogo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Wishlist = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // Wishlist
-            // 
-            this.Wishlist.Location = new System.Drawing.Point(664, 34);
-            this.Wishlist.Name = "Wishlist";
-            this.Wishlist.Size = new System.Drawing.Size(108, 54);
-            this.Wishlist.TabIndex = 0;
-            this.Wishlist.Text = "Wishlist";
-            this.Wishlist.UseVisualStyleBackColor = true;
-            // 
-            // Form3
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Wishlist);
-            this.Name = "Form3";
-            this.Text = "Form3";
-            this.ResumeLayout(false);
-
+            this.Text = "Form4";
         }
 
         #endregion
-
-        private Button Wishlist;
     }
 }

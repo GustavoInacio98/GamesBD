@@ -7,5 +7,11 @@
     <Compile Update="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="InterUtilizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="InterJogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
