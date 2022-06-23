@@ -34,22 +34,59 @@ namespace GamesDB
         }
 
 
-        private void InserirUtilizador(Utilizador utilizador)
+       /* private void AtualizarUtilizadores()
         {
-            int valid = 0;
             if (verifySGBDConnection())
                 return;
-            using(SqlCommand cmd = new SqlCommand("Projeto.InsertUtilizador", cn))
-            {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Clear();
-                cmd.Parameters.AddWithValue("@nome", Utilizador.nome);
-                cmd.Parameters.AddWithValue("@password", Utilizador.password);
-                cmd.Parameters.AddWithValue("@email", Utilizador.email);
-                cmd.Parameters.AddWithValue("@telemovel", Utilizador.telemovel);
-                cmd.Parameters.AddWithValue("@regiao", Utilizador.regiao);
-                cmd.Connection = cn;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "Discografia.updateUser";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 30).Value = u.username;
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 30).Value = u.email;
+            cmd.Parameters.Add("@name", SqlDbType.VarChar, 30).Value = u.name;
+            cmd.Connection = cn;
 
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to update user in database. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }*/
+
+
+        private void InserirUtilizador(Utilizador utilizador)
+        {
+            if (verifySGBDConnection())
+                return;
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandText = "newUtilizador";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@username", SqlDbType.VarChar, 60).Value = utilizador.nome;
+            cmd.Parameters.Add("@email", SqlDbType.VarChar, 60).Value = utilizador.email;
+            cmd.Parameters.Add("@name", SqlDbType.VarChar, 60).Value = utilizador.telemovel;
+            cmd.Connection = cn;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha a adicionar utilizador à base de dados. \n ERROR MESSAGE: \n" + ex.Message);
+            }
+            finally
+            {
+                cn.Close();
             }
         }
 
