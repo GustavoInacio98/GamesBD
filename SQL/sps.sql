@@ -26,9 +26,9 @@ END
 go
 
 /* Teste */
-EXEC newJogoFisico 'JOGO6', 'MMO', 'league of legends', 70, '8GB space, 2GB ram', '2004-03-25', 0, 'platXB', 'pubNM', 'devTA', 'CD';
-SELECT * FROM PROJETO.Jogo;
-SELECT * FROM PROJETO.FormatoFisico;
+--EXEC newJogoFisico 'JOGO6', 'MMO', 'league of legends', 70, '8GB space, 2GB ram', '2004-03-25', 0, 'platXB', 'pubNM', 'devTA', 'CD';
+--SELECT * FROM PROJETO.Jogo;
+--SELECT * FROM PROJETO.FormatoFisico;
 
 
 --new jogo Digital
@@ -59,9 +59,9 @@ END
 go
 
 /* Teste */
-EXEC newJogoDigital'JOGO7', 'ação', 'BATMAN', 70, '8GB space, 2GB ram', '2004-03-25', 0, 'platXB', 'pubNM', 'devTA', 'AJHD-SDCH-SDHB-1273';
-SELECT * FROM PROJETO.Jogo;
-SELECT * FROM PROJETO.FormatoDigital;
+--EXEC newJogoDigital'JOGO7', 'ação', 'BATMAN', 70, '8GB space, 2GB ram', '2004-03-25', 0, 'platXB', 'pubNM', 'devTA', 'AJHD-SDCH-SDHB-1273';
+--SELECT * FROM PROJETO.Jogo;
+--SELECT * FROM PROJETO.FormatoDigital;
 
 --new plataforma
 GO
@@ -74,8 +74,8 @@ END
 
 go
 /* Teste */
-EXEC newPlataforma 'platGB', 'GameBoy';
-SELECT * FROM PROJETO.Plataforma;
+--EXEC newPlataforma 'platGB', 'GameBoy';
+--SELECT * FROM PROJETO.Plataforma;
 
 
 --new publicador
@@ -89,11 +89,11 @@ END
 
 go
 /* Teste */
-EXEC newPublicador'pubRT', 'Riot Games';
-SELECT * FROM PROJETO.Publicador;
+--EXEC newPublicador'pubRT', 'Riot Games';
+--SELECT * FROM PROJETO.Publicador;
 
 
---new developer
+--new desenvolvedor
 GO
 CREATE PROCEDURE newDesenvolvedor( @desenvolvedorID VARCHAR(20), @nome VARCHAR(40), @sede VARCHAR(40))
 AS
@@ -104,22 +104,9 @@ END
 
 go
 /* Teste */
-EXEC newDesenvolvedor 'devRT', 'Riot Games', 'West Los Angeles, Califórnia, EUA';
-SELECT * FROM PROJETO.Desenvolvedor;
+--EXEC newDesenvolvedor 'devRT', 'Riot Games', 'West Los Angeles, Califórnia, EUA';
+--SELECT * FROM PROJETO.Desenvolvedor;
 
---new developer
-GO
-CREATE PROCEDURE newDesenvolvedor( @desenvolvedorID VARCHAR(20), @nome VARCHAR(40), @sede VARCHAR(40))
-AS
-BEGIN	
-	INSERT INTO PROJETO.Desenvolvedor VALUES(@desenvolvedorID, @nome, @sede);
-END
-
-
-go
-/* Teste */
-EXEC newDesenvolvedor 'devRT', 'Riot Games', 'West Los Angeles, Califórnia, EUA';
-SELECT * FROM PROJETO.Desenvolvedor;
 
 
 --new utilizador
@@ -129,7 +116,7 @@ CREATE PROCEDURE newUtilizador(@nomeUtilizador VARCHAR(40), @nome VARCHAR(40), @
 AS
 BEGIN
 	BEGIN TRY
-		INSERT INTO PROJETO.Utilizador VALUES(@nomeUtilizador, @nome, @nome, @email, @telemovel, @regiao);
+		INSERT INTO PROJETO.Utilizador VALUES(@nomeUtilizador, @nome, @email, @telemovel, @regiao);
 		PRINT 'Sucess'
 	END TRY
 	BEGIN CATCH
@@ -151,6 +138,29 @@ END
 go
 
 /* Teste */
-EXEC newUtilizador 'Acácio Rodrigues', 'NickName', 'randomemail@email.com', 912456512, 'America Norte', 'palavrapasse';
-SELECT * FROM PROJETO.Utilizador;
-SELECT * FROM PROJETO.SistemaAutenticacao;
+--EXEC newUtilizador 'Acácio Rodrigues', 'NickName', 'randomemail@email.com', 912456512, 'America Norte', 'palavrapasse';
+--SELECT * FROM PROJETO.Utilizador;
+--SELECT * FROM PROJETO.SistemaAutenticacao;
+
+
+--new in lista de desejos
+GO
+CREATE PROCEDURE addListaDesejos(@nomeUtilizador VARCHAR(40), @jogoID VARCHAR(20))
+
+AS
+BEGIN
+	BEGIN TRY
+		INSERT INTO PROJETO.ListaDesejos VALUES(@nomeUtilizador, @jogoID);
+		PRINT 'Sucess'
+	END TRY
+	BEGIN CATCH
+		PRINT ERROR_MESSAGE()
+	END CATCH	
+	
+END
+
+go
+
+/* Teste */
+EXEC addListaDesejos 'xXReaperXx', 'JOGO1';
+SELECT * FROM PROJETO.ListaDesejos;
