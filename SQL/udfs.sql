@@ -43,14 +43,14 @@ GO
 
 
 
---Ver rankings
-GO
-CREATE FUNCTION getAllGames () RETURNS TABLE AS
+----Ver todos jogos
+--GO
+--CREATE FUNCTION getAllGames () RETURNS TABLE AS
 	
-	RETURN( SELECT Jogo.nome, Plataforma.nome
-			FROM PROJETO.Jogo
-			JOIN PROJETO.Plataforma ON Jogo.jogoID=Plataforma.plataformaID)
-GO
+--	RETURN( SELECT Jogo.nome, Plataforma.nome
+--			FROM PROJETO.Jogo
+--			JOIN PROJETO.Plataforma ON Jogo.jogoID=Plataforma.plataformaID)
+--GO
 
---Test
-SELECT * FROM getAllGames();
+----Test
+--SELECT * FROM getAllGames();

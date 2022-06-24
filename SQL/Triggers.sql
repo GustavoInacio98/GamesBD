@@ -23,7 +23,7 @@ as
 	delete from PROJETO.Utilizador where nomeUtilizador=@id;
 
 
-DROP TRIGGER IF EXISTS DeleteUtilizador;
+DROP TRIGGER IF EXISTS DeletePlataforma;
 go
 create Trigger DeletePlataforma on PROJETO.Plataforma instead of Delete
 as
@@ -33,7 +33,7 @@ as
 	delete from PROJETO.Plataforma where plataformaID=@id;
 
 
-DROP TRIGGER IF EXISTS DeleteUtilizador;
+DROP TRIGGER IF EXISTS DeletePublicador;
 go
 create Trigger DeletePublicador on PROJETO.Publicador instead of Delete
 as
@@ -42,7 +42,7 @@ as
 	update PROJETO.Jogo set publicadorID=null where publicadorID=@id;
 	delete from PROJETO.Publicador where publicadorID=@id;
 
-DROP TRIGGER IF EXISTS DeleteUtilizador;
+DROP TRIGGER IF EXISTS DeleteDesenvolvedor;
 go
 create Trigger DeleteDesenvolvedor on PROJETO.Desenvolvedor instead of Delete
 as

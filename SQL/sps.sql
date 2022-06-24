@@ -1,3 +1,4 @@
+
 --new jogo fisico
 GO
 CREATE PROCEDURE newJogoFisico( @jogoID VARCHAR(20), @categoria VARCHAR(40), @nome VARCHAR(40), @rating INT, @especificacoesTecnicas VARCHAR(120), @dataLancamento DATE, @preco MONEY, @plataformaID VARCHAR(20), @publicadorID VARCHAR(20), @desenvolvedorID VARCHAR(20), @tipoFormato VARCHAR(20))
@@ -162,5 +163,44 @@ END
 go
 
 /* Teste */
-EXEC addListaDesejos 'xXReaperXx', 'JOGO1';
-SELECT * FROM PROJETO.ListaDesejos;
+--EXEC addListaDesejos 'xXReaperXx', 'JOGO1';
+--SELECT * FROM PROJETO.ListaDesejos;
+
+
+--GO
+--CREATE PROCEDURE alterUtilizador(@nomeUtilizador VARCHAR(40), @nome VARCHAR(40), @email VARCHAR(60), @telemovel INT, @regiao VARCHAR(40), @senha VARCHAR(40))
+--AS
+--BEGIN
+--	BEGIN TRY
+--		BEGIN TRANSACTION
+--			DECLARE @nomeUtilizador_old as VARCHAR(40);
+--			DECLARE @nome_old as VARCHAR(40);
+--			DECLARE @email_old as VARCHAR(60);
+--			DECLARE @telemovel_old as INT;
+--			DECLARE @regiao_old as VARCHAR(60);
+--			DECLARE @senha_old VARCHAR(40);
+			
+
+--			SELECT @nomeUtilizador_old = @nomeUtilizador, @nome_old = @nome, @email_old = @email,  @telemovel_old =  @telemovel, @regiao_old = @regiao,  @senha_old =  @senha
+--			FROM PROJETO.Utilizador
+--			WHERE PROJETO.Utilizador.nomeUtilizador = @nomeUtilizador;
+
+--			IF @nomeUtilizador_old != @nomeUtilizador
+--			BEGIN
+--				UPDATE PROJETO.Jogo SET nomeUtilizador = @nomeUtilizador WHERE nomeUtilizador=@nomeUtilizador_old;
+--				PRINT 'Event id updated with success'
+--			END
+
+			
+
+--		COMMIT
+--	END TRY
+--	BEGIN CATCH
+--		PRINT ERROR_MESSAGE()
+--		ROLLBACK
+--	END CATCH
+--END
+
+--/* Teste */
+--SELECT * FROM PROJETO.UtilizadorS;
+--EXEC alterUtilizador '', 'RockFest', 2, '2018-06-02', '2018-06-03', 1450, 1134000, '2017-12-01',22032242;
