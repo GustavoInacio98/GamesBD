@@ -62,42 +62,16 @@ namespace GamesDB
         }*/
 
 
-        private void InserirUtilizador(Utilizador utilizador)
-        {
-            if (verifySGBDConnection())
-                return;
-            SqlCommand cmd = new SqlCommand();
-
-            cmd.CommandText = "newUtilizador";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Clear();
-            cmd.Parameters.Add("@username", SqlDbType.VarChar, 60).Value = utilizador.nome;
-            cmd.Parameters.Add("@email", SqlDbType.VarChar, 60).Value = utilizador.email;
-            cmd.Parameters.Add("@name", SqlDbType.VarChar, 60).Value = utilizador.telemovel;
-            cmd.Connection = cn;
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Falha a adicionar utilizador à base de dados. \n ERROR MESSAGE: \n" + ex.Message);
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }
 
         private void Login_Click(object sender, EventArgs e)
         {
             if (verifySGBDConnection())
                 return;
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "checkLogins";
+            SqlCommand cmd = new SqlCommand("SELECT * FROM checkLogins(@id,@senha)", cn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(textBox3.Text);
+            cmd.Parameters.Clear();
+            cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = textBox3.Text;
+            cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = textBox4.Text;
         }
 
         private void registar_Click(object sender, EventArgs e)
