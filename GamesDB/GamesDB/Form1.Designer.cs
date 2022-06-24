@@ -43,7 +43,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Login = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.registar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -174,19 +174,20 @@
             this.Login.UseVisualStyleBackColor = true;
             this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
-            // button4
+            // registar
             // 
-            this.button4.Location = new System.Drawing.Point(634, 418);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Registar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.registar.Location = new System.Drawing.Point(634, 418);
+            this.registar.Name = "registar";
+            this.registar.Size = new System.Drawing.Size(75, 23);
+            this.registar.TabIndex = 7;
+            this.registar.Text = "Registar";
+            this.registar.UseVisualStyleBackColor = true;
+            this.registar.Click += new System.EventHandler(this.registar_Click);
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(731, 462);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.registar);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox4);
@@ -217,6 +218,6 @@
         private TextBox textBox4;
         private Label label8;
         private Button Login;
-        private Button button4;
+        private Button registar;
     }
 }

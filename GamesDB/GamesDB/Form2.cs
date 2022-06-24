@@ -33,9 +33,10 @@ namespace GamesDB
             {
                 MessageBox.Show(ex.Message);
             }
-            InserirUtilizador(utilizador);
+
+            /*InserirUtilizador(utilizador);
             Utilizador.Items.Add(utilizador);
-            AtualizarUtilizadores();
+            AtualizarUtilizadores();*/
         }
     }
 }

@@ -92,7 +92,18 @@ namespace GamesDB
 
         private void Login_Click(object sender, EventArgs e)
         {
+            if (verifySGBDConnection())
+                return;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "checkLogins";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(textBox3.Text);
+        }
 
+        private void registar_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            f2.Show();
         }
     }
 }

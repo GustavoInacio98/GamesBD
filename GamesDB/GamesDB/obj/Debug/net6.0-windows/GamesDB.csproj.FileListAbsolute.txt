@@ -22,3 +22,6 @@ C:\Users\Uilizador\Documents\BD\Projeto\GamesDB\GamesDB\obj\Debug\net6.0-windows
 C:\Users\Uilizador\Documents\BD\Projeto\GamesDB\GamesDB\obj\Debug\net6.0-windows\GamesDB.pdb
 C:\Users\Uilizador\Documents\BD\Projeto\GamesDB\GamesDB\obj\Debug\net6.0-windows\GamesDB.genruntimeconfig.cache
 C:\Users\Uilizador\Documents\BD\Projeto\GamesDB\GamesDB\obj\Debug\net6.0-windows\ref\GamesDB.dll
+C:\Users\Uilizador\Documents\BD\Projeto\GamesDB\GamesDB\obj\Debug\net6.0-windows\GamesDB.Form2.resources
+C:\Users\Uilizador\Documents\BD\Projeto\GamesDB\GamesDB\obj\Debug\net6.0-windows\GamesDB.InterJogo.resources
+C:\Users\Uilizador\Documents\BD\Projeto\GamesDB\GamesDB\obj\Debug\net6.0-windows\GamesDB.InterUtilizador.resources
