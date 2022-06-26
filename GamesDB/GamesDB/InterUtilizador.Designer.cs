@@ -31,11 +31,12 @@
             this.Wishlist = new System.Windows.Forms.Button();
             this.ProcuraJogos = new System.Windows.Forms.Button();
             this.Logout = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Wishlist
             // 
-            this.Wishlist.Location = new System.Drawing.Point(224, 147);
+            this.Wishlist.Location = new System.Drawing.Point(114, 147);
             this.Wishlist.Name = "Wishlist";
             this.Wishlist.Size = new System.Drawing.Size(108, 54);
             this.Wishlist.TabIndex = 0;
@@ -60,11 +61,21 @@
             this.Logout.Text = "Logout";
             this.Logout.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(282, 147);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 54);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Procura de utilizadores";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // InterUtilizador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.ProcuraJogos);
             this.Controls.Add(this.Wishlist);
@@ -79,5 +90,6 @@
         private Button Wishlist;
         private Button ProcuraJogos;
         private Button Logout;
+        private Button button1;
     }
 }
