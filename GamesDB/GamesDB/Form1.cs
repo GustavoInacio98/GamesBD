@@ -72,6 +72,7 @@ namespace GamesDB
             cmd.Parameters.Clear();
             cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = textBox3.Text;
             cmd.Parameters.Add("@senha", SqlDbType.VarChar).Value = textBox4.Text;
+            MessageBox.Show("Login Sucessful!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void registar_Click(object sender, EventArgs e)

@@ -10,7 +10,7 @@ namespace GamesDB
     {
         private String _nome;
         private String _password;
-        private String _id;
+        private String _username;
         private String _telemovel;
         private String _email;
         private String _regiao;
@@ -27,10 +27,10 @@ namespace GamesDB
             set { _password = value; }
         }
 
-        public string id
+        public string username
         {
-            get { return _id; }
-            set { _id = value; }
+            get { return _username; }
+            set { _username = value; }
         }
 
         public string telemovel
