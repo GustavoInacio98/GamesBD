@@ -37,7 +37,7 @@ namespace GamesDB
         {
             if (verifySGBDConnection())
                 return;
-            SqlCommand cmd = new SqlCommand("newUtilizador");
+            SqlCommand cmd = new SqlCommand("newUtilizador",cn);
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Clear();
@@ -67,6 +67,7 @@ namespace GamesDB
             {
                 utilizador.nome = textBox1.Text;
                 utilizador.password = textBox5.Text;
+                utilizador.username = textBox6.Text;
                 utilizador.email = textBox2.Text;
                 utilizador.telemovel = textBox3.Text;
                 utilizador.regiao = textBox4.Text;
