@@ -23,6 +23,10 @@ DROP PROCEDURE newPublicador;
 DROP PROCEDURE newDesenvolvedor;
 DROP PROCEDURE newUtilizador;
 DROP PROCEDURE addListaDesejos;
+DROP PROCEDURE alterUtilizador;
+DROP PROCEDURE DeleteFromListaDesejos;
+DROP PROCEDURE AddToListaDesejos;
+DROP PROCEDURE DeleteUser;
 
 
 drop schema projeto

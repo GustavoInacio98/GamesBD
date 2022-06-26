@@ -10,7 +10,7 @@ BEGIN
 	END TRY
 	BEGIN CATCH
 		PRINT ERROR_MESSAGE()
-	END CATCH	
+	END CATCH
 	
 END
 
@@ -167,40 +167,118 @@ go
 --SELECT * FROM PROJETO.ListaDesejos;
 
 
---GO
---CREATE PROCEDURE alterUtilizador(@nomeUtilizador VARCHAR(40), @nome VARCHAR(40), @email VARCHAR(60), @telemovel INT, @regiao VARCHAR(40), @senha VARCHAR(40))
---AS
---BEGIN
---	BEGIN TRY
---		BEGIN TRANSACTION
---			DECLARE @nomeUtilizador_old as VARCHAR(40);
---			DECLARE @nome_old as VARCHAR(40);
---			DECLARE @email_old as VARCHAR(60);
---			DECLARE @telemovel_old as INT;
---			DECLARE @regiao_old as VARCHAR(60);
---			DECLARE @senha_old VARCHAR(40);
+GO
+CREATE PROCEDURE alterUtilizador(@nomeUtilizador VARCHAR(40), @nome VARCHAR(40), @email VARCHAR(60), @telemovel INT, @regiao VARCHAR(40), @senha VARCHAR(40))
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+			DECLARE @nomeUtilizador_old as VARCHAR(40);
+			DECLARE @nome_old as VARCHAR(40);
+			DECLARE @email_old as VARCHAR(60);
+			DECLARE @telemovel_old as INT;
+			DECLARE @regiao_old as VARCHAR(60);
+			DECLARE @senha_old VARCHAR(40);
 			
 
---			SELECT @nomeUtilizador_old = @nomeUtilizador, @nome_old = @nome, @email_old = @email,  @telemovel_old =  @telemovel, @regiao_old = @regiao,  @senha_old =  @senha
---			FROM PROJETO.Utilizador
---			WHERE PROJETO.Utilizador.nomeUtilizador = @nomeUtilizador;
+			SELECT @nomeUtilizador_old = nomeUtilizador, @nome_old = nome, @email_old = email,  @telemovel_old =  telemovel, @regiao_old = regiao
+			FROM PROJETO.Utilizador
+			WHERE PROJETO.Utilizador.nomeUtilizador = @nomeUtilizador;
 
---			IF @nomeUtilizador_old != @nomeUtilizador
---			BEGIN
---				UPDATE PROJETO.Jogo SET nomeUtilizador = @nomeUtilizador WHERE nomeUtilizador=@nomeUtilizador_old;
---				PRINT 'Event id updated with success'
---			END
+			SELECT @senha_old = senha
+			FROM PROJETO.SistemaAutenticacao
+			WHERE PROJETO.SistemaAutenticacao.nomeUtilizador = @nomeUtilizador;
 
+
+			IF @nome_old != @nome
+			BEGIN
+				UPDATE PROJETO.Utilizador SET nome = @nome WHERE nome=@nome_old;
+				PRINT 'nome updated with success'
+			END
+
+			IF @email_old != @email
+			BEGIN
+				UPDATE PROJETO.Utilizador SET email = @email WHERE email=@email_old;
+				PRINT 'email updated with success'
+			END
+
+			IF @telemovel_old != @telemovel
+			BEGIN
+				UPDATE PROJETO.Utilizador SET telemovel = @telemovel WHERE telemovel=@telemovel_old;
+				PRINT 'telemovel updated with success'
+			END
+
+			IF @regiao_old != @regiao
+			BEGIN
+				UPDATE PROJETO.Utilizador SET regiao = @regiao WHERE regiao=@regiao_old;
+				PRINT 'regiao updated with success'
+			END
+
+			IF @senha_old != @senha
+			BEGIN
+				UPDATE PROJETO.SistemaAutenticacao SET senha = @senha WHERE senha=@senha_old;
+				PRINT 'senha updated with success'
+			END
 			
 
---		COMMIT
---	END TRY
---	BEGIN CATCH
---		PRINT ERROR_MESSAGE()
---		ROLLBACK
---	END CATCH
---END
+		COMMIT
+	END TRY
+	BEGIN CATCH
+		PRINT ERROR_MESSAGE()
+		ROLLBACK
+	END CATCH
+END
 
---/* Teste */
---SELECT * FROM PROJETO.UtilizadorS;
---EXEC alterUtilizador '', 'RockFest', 2, '2018-06-02', '2018-06-03', 1450, 1134000, '2017-12-01',22032242;
+go
+/* Teste */
+
+--EXEC alterUtilizador 'Henrique1234', 'x', 'x@email.com', 910000000, 'Australia', 'x';
+--SELECT * FROM PROJETO.Utilizador;
+--SELECT * FROM PROJETO.SistemaAutenticacao;
+
+
+
+
+GO
+CREATE PROCEDURE DeleteFromListaDesejos(@nomeUtilizador VARCHAR(40), @jogoID VARCHAR(20))
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRANSACTION
+			DELETE FROM PROJETO.ListaDesejos WHERE nomeUtilizador=@nomeUtilizador and jogoID=@jogoID; 
+			PRINT 'Sucess'
+		COMMIT
+	END TRY
+	BEGIN CATCH
+		PRINT ERROR_MESSAGE()
+		ROLLBACK
+	END CATCH
+END
+
+go
+/* Teste */
+--EXEC DeleteFromListaDesejos 'Henrique1234', 'JOGO1';
+--SELECT * FROM PROJETO.ListaDesejos;
+
+
+GO
+CREATE PROCEDURE AddToListaDesejos(@nomeUtilizador VARCHAR(40), @jogoID VARCHAR(20))
+AS
+BEGIN
+	BEGIN TRY
+		INSERT INTO PROJETO.ListaDesejos VALUES(@nomeUtilizador, @jogoID);
+		PRINT 'Success'
+	END TRY
+	BEGIN CATCH
+		PRINT ERROR_MESSAGE()
+	END CATCH
+END
+
+
+go
+/* Teste */
+
+--EXEC AddToListaDesejos 'Henrique1234', 'JOGO4';
+--SELECT * FROM PROJETO.ListaDesejos;
+
+
