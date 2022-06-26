@@ -3,21 +3,21 @@ GO
 
 CREATE TABLE PROJETO.Plataforma(
 	plataformaID	VARCHAR(20)				NOT NULL,
-	nome			VARCHAR(40)				NOT NULL,
+	nome_plat		VARCHAR(40)				NOT NULL,
 
 	PRIMARY KEY (plataformaID)
 );
 
 CREATE TABLE PROJETO.Publicador(
 	publicadorID	VARCHAR(20)				NOT NULL,
-	nome			VARCHAR(40)				NOT NULL,
+	nome_pub		VARCHAR(40)				NOT NULL,
 
 	PRIMARY KEY (publicadorID)
 );
 
 CREATE TABLE PROJETO.Desenvolvedor(
 	desenvolvedorID		VARCHAR(20)				NOT NULL,
-	nome				VARCHAR(40)				NOT NULL,
+	nome_dev			VARCHAR(40)				NOT NULL,
 	sede				VARCHAR(40)				NOT NULL,
 
 	PRIMARY KEY (desenvolvedorID)

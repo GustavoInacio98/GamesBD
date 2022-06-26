@@ -16,6 +16,7 @@ DROP FUNCTION checkEstatisticas;
 DROP FUNCTION getAllGames;
 
 
+
 DROP PROCEDURE newJogoFisico;
 DROP PROCEDURE newJogoDigital;
 DROP PROCEDURE newPlataforma;

@@ -66,10 +66,10 @@ go
 
 --new plataforma
 GO
-CREATE PROCEDURE newPlataforma( @plataformaID VARCHAR(20), @nome VARCHAR(40))
+CREATE PROCEDURE newPlataforma( @plataformaID VARCHAR(20), @nome_plat VARCHAR(40))
 AS
 BEGIN	
-	INSERT INTO PROJETO.Plataforma VALUES(@plataformaID, @nome);
+	INSERT INTO PROJETO.Plataforma VALUES(@plataformaID, @nome_plat);
 END
 
 
@@ -81,10 +81,10 @@ go
 
 --new publicador
 GO
-CREATE PROCEDURE newPublicador( @publicadorID VARCHAR(20), @nome VARCHAR(40))
+CREATE PROCEDURE newPublicador( @publicadorID VARCHAR(20), @nome_pub VARCHAR(40))
 AS
 BEGIN	
-	INSERT INTO PROJETO.Publicador VALUES(@publicadorID, @nome);
+	INSERT INTO PROJETO.Publicador VALUES(@publicadorID, @nome_pub);
 END
 
 
@@ -96,10 +96,10 @@ go
 
 --new desenvolvedor
 GO
-CREATE PROCEDURE newDesenvolvedor( @desenvolvedorID VARCHAR(20), @nome VARCHAR(40), @sede VARCHAR(40))
+CREATE PROCEDURE newDesenvolvedor( @desenvolvedorID VARCHAR(20), @nome_dev VARCHAR(40), @sede VARCHAR(40))
 AS
 BEGIN	
-	INSERT INTO PROJETO.Desenvolvedor VALUES(@desenvolvedorID, @nome, @sede);
+	INSERT INTO PROJETO.Desenvolvedor VALUES(@desenvolvedorID, @nome_dev, @sede);
 END
 
 
